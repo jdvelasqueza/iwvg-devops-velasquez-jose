@@ -3,6 +3,9 @@ package es.upm.miw.iwvg_devops.code;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTest {
@@ -19,7 +22,6 @@ public class UserTest {
 
     @Test
     void testUser(){
-        user = new User();
         assertEquals("1018", user.getId());
         assertEquals("Max", user.getName());
         assertEquals("Ramos", user.getFamilyName());
@@ -98,17 +100,17 @@ public class UserTest {
 
     @Test
     void testFullName() {
-        assertEquals("David Velasquez", user.fullName());
+        assertEquals("Max Ramos", user.fullName());
     }
 
     @Test
     void testInitials() {
-        assertEquals("D.", user.initials());
+        assertEquals("M.", user.initials());
     }
 
     @Test
     void testToString() {
-        String expectedToString = "User{id='724', name='David', familyName='Velasquez', " +
+        String expectedToString = "User{id='1018', name='Max', familyName='Ramos', " +
                 "fractions=[Fraction{numerator=1, denominator=2}, Fraction{numerator=3, denominator=4}]}";
         assertEquals(expectedToString, user.toString());
     }
