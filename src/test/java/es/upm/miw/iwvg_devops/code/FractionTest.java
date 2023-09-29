@@ -3,7 +3,7 @@ package es.upm.miw.iwvg_devops.code;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FractionTest {
 
@@ -52,6 +52,50 @@ public class FractionTest {
     @Test
     void testDecimal() {
         assertEquals(0.75, fraction.decimal(), 0.001);
+    }
+
+    @Test
+    void testIsProper() {
+        assertTrue(fraction.isProper());
+    }
+
+    @Test
+    void testIsImproper() {
+        assertFalse(fraction.isImproper());
+    }
+
+    @Test
+    void testEquivalent() {
+        assertTrue(fraction.equivalent(new Fraction(6, 8)));
+    }
+
+    @Test
+    void testAdd() {
+        Fraction fractionNew = new Fraction(3, 4);
+        this.fraction.add(fractionNew);
+        assertEquals(24, this.fraction.getNumerator());
+        assertEquals(16, this.fraction.getDenominator());
+    }
+
+    @Test
+    void testMultiply() {
+        Fraction fractionNew = new Fraction(3, 4);
+        this.fraction.multiply(fractionNew);
+        assertEquals(9, this.fraction.getNumerator());
+        assertEquals(16, this.fraction.getDenominator());
+    }
+
+    @Test
+    void testDivide() {
+        Fraction fractionNew = new Fraction(3, 4);
+        this.fraction.divide(fractionNew);
+        assertEquals(12, this.fraction.getNumerator());
+        assertEquals(12, this.fraction.getDenominator());
+    }
+
+    @Test
+    void testToString() {
+        assertEquals("Fraction{numerator=3, denominator=4}", fraction.toString());
     }
 
 }
